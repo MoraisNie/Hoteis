@@ -60,7 +60,7 @@ public class Main {
                         System.out.println("Não há quartos vagos.");
                         break;
                     }
-                    livres.forEach(System.out.println);
+                    livres.forEach(System.out::println);
                     
                     System.out.print("\nNúmero do quarto para alojar: ");
                     int nQuartoIn = Integer.parseInt(scanner.nextLine());
@@ -79,7 +79,7 @@ public class Main {
 
                 case 4:
                     System.out.println("\n=== LISTA DE QUARTOS VAGOS ===");
-                    hotelService.listarQuartosDisponiveis().forEach(System.out.println);
+                    hotelService.listarQuartosDisponiveis().forEach(System.out::println);
                     break;
 
                 case 5:
@@ -90,8 +90,8 @@ public class Main {
                         hotelService.exibirRelatorioGerencial();
                         System.out.println("\nDeseja ver dados analíticos detalhados? [1] Clientes [2] Quartos [Outra tecla] Menu");
                         String subOp = scanner.nextLine();
-                        if ("1".equals(subOp)) hotelService.listarTodosClientes().forEach(System.out.println);
-                        if ("2".equals(subOp)) hotelService.listarTodosQuartos().forEach(System.out.println);
+                        if ("1".equals(subOp)) hotelService.listarTodosClientes().forEach(System.out::println);
+                        if ("2".equals(subOp)) hotelService.listarTodosQuartos().forEach(System.out::println);
                     } else {
                         System.out.println("Acesso Recusado! Palavra-passe incorreta.");
                     }
