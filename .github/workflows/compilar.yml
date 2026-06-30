@@ -1,0 +1,35 @@
+name: Compilar Sistema Hoteleiro
+
+# O workflow será executado sempre que enviar código para o ramo 'main' ou 'master'
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    # Cria uma máquina virtual com a versão mais recente do Ubuntu Linux
+    runs-on: ubuntu-latest
+
+    steps:
+    # Passo 1: Descarrega o seu código do repositório para a máquina virtual
+    - name: Obter o código fonte
+      uses: actions/checkout@v4
+
+    # Passo 2: Instala o Java (JDK 17) no servidor do GitHub
+    - name: Configurar o Java JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin' # Distribuição oficial e gratuita do Java
+
+    # Passo 3: Cria a pasta 'bin' e compila todos os pacotes do projeto
+    - name: Compilar o código fonte
+      run: |
+        mkdir -p bin
+        javac src/model/*.java src/repository/*.java src/service/*.java src/view/*.java -d bin
+
+    # Passo 4: Mensagem de sucesso (só é executado se o Passo 3 não der erro)
+    - name: Verificar estado da compilação
+      run: echo "Compilação concluída com absoluto sucesso! O código não tem erros de sintaxe."
