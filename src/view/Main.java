@@ -14,14 +14,14 @@ public class Main {
         int opcao = -1;
 
         System.out.println("=========================================");
-        System.out.println("   SISTEMA DE MANAGEMENT HOTELEIRO       ");
+        System.out.println("   SISTEMA DE GERENCIAMENTO HOTELEIRO    ");
         System.out.println("=========================================");
 
         while (opcao != 0) {
             System.out.println("\n--- MENU PRINCIPAL ---");
             System.out.println("1. Registar Cliente");
             System.out.println("2. Entrada de Hóspede (Check-In)");
-            System.out.println("3. Saída de Hóspede (Check-Out) [Libertação Automática]");
+            System.out.println("3. Saída de Hóspede (Check-Out)");
             System.out.println("4. Mostrar Quartos Disponíveis");
             System.out.println("5. Painel Exclusivo dos Donos do Hotel");
             System.out.println("0. Sair");
